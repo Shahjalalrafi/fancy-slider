@@ -24,16 +24,13 @@ const showImages = (images) => {
   gallery.innerHTML = '';
   // show gallery title
   galleryHeader.style.display = 'flex';
-  if(images !== null) {
-    images.forEach(image => {
-      let div = document.createElement('div');
-      div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
-      div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
-      gallery.appendChild(div)
-    })
-  }else {
-    document.getElementById('error').style.display = 'block'
-  }
+  images.forEach(image => {
+    let div = document.createElement('div');
+    div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
+    div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
+    gallery.appendChild(div)
+  })
+ 
   //for bonus mark-- i am using loading spinner
   toggleSpinner()
 }
@@ -144,7 +141,7 @@ const toggleSpinner = () => {
   imagesArea.classList.toggle('d-none')
 }
 
-//FOR BONUS MARKS-- INCREASE AND DECREASE NUMBER OF SELECTED IMAGE
+//FOR BONUS MARKS-- ON TOP INCREASE AND DECREASE NUMBER OF SELECTED IMAGE
 const updateImage = () => {
     const img = document.getElementById('select-img').innerText = sliders.length
 }
